@@ -8,4 +8,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaScreening.Application\CinemaScreening.Application.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Domain\CinemaScreening.Domain.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Infra.Ioc\CinemaScreening.Infra.Ioc.csproj" />
+  </ItemGroup>
+
 </Project>

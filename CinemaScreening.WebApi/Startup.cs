@@ -1,3 +1,4 @@
+using CinemaScreening.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,6 +32,8 @@ namespace CinemaScreening.WebApi
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CinemaScreening.WebApi", Version = "v1" });
             });
+
+            RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -51,6 +54,11 @@ namespace CinemaScreening.WebApi
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void RegisterServices(IServiceCollection services)
+        {
+            DependencyInjection.RegisterDependencies(services);
         }
     }
 }
