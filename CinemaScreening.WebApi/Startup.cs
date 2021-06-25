@@ -56,9 +56,10 @@ namespace CinemaScreening.WebApi
             });
         }
 
-        private static void RegisterServices(IServiceCollection services)
+        private void RegisterServices(IServiceCollection services)
         {
             DependencyInjection.RegisterDependencies(services);
+            DependencyInjection.RegisterConnectionString(Configuration.GetConnectionString("CinemaScreeningDB"));
         }
     }
 }
