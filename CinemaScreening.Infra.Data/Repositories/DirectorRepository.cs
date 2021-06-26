@@ -1,4 +1,4 @@
-﻿using CinemaScreening.Domain.Dtos;
+﻿using CinemaScreening.Domain.Models;
 using CinemaScreening.Domain.RepositoryInterfaces;
 using Dapper;
 using System;
@@ -12,7 +12,7 @@ namespace CinemaScreening.Infra.Data.Repositories
 {
     public class DirectorRepository : RepositoryBase, IDirectorRepository
     {
-        public  async Task<DirectorDto> Create(DirectorDto entity)
+        public  async Task<Director> Create(Director entity)
         {
             var parameters = new DynamicParameters();
 
@@ -45,23 +45,23 @@ namespace CinemaScreening.Infra.Data.Repositories
             return result;
         }
 
-        public async Task<IEnumerable<DirectorDto>> GetAll()
+        public async Task<IEnumerable<Director>> GetAll()
         {
             var parameters = new DynamicParameters();
             parameters.Add("@id", null, DbType.Int32, ParameterDirection.Input);
-            var query = Connection.QueryAsync<DirectorDto>("ReadDirector", parameters , Transaction, commandType: CommandType.StoredProcedure);
+            var query = Connection.QueryAsync<Director>("ReadDirector", parameters , Transaction, commandType: CommandType.StoredProcedure);
             return await query.ConfigureAwait(false);
         }
 
-        public async Task<DirectorDto> GetById(int id)
+        public async Task<Director> GetById(int id)
         {
             var parameters = new DynamicParameters();
             parameters.Add("@id", id, DbType.Int32, ParameterDirection.Input);
-            var query = Connection.QueryAsync<DirectorDto>("ReadDirector", parameters, Transaction, commandType: CommandType.StoredProcedure);
+            var query = Connection.QueryAsync<Director>("ReadDirector", parameters, Transaction, commandType: CommandType.StoredProcedure);
             return (await query.ConfigureAwait(false)).SingleOrDefault();
         }
 
-        public async Task<DirectorDto> Update(int id, DirectorDto entity)
+        public async Task<Director> Update(int id, Director entity)
         {
             var currentEntity = await GetById(id).ConfigureAwait(false);
             if(currentEntity == null)
@@ -81,7 +81,7 @@ namespace CinemaScreening.Infra.Data.Repositories
             return await GetById(id).ConfigureAwait(false);
         }
 
-        private static DynamicParameters GetUpdateParameters(int id, DirectorDto changes)
+        private static DynamicParameters GetUpdateParameters(int id, Director changes)
         {
             var parameters = new DynamicParameters();
 

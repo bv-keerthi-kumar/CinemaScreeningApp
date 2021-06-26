@@ -19,6 +19,12 @@ namespace CinemaScreening.Infra.Ioc
 
             //Infra.Data layer
             RegisterRepositories(services);
+            RegisterAutoMapper(services);
+        }
+
+        private static void RegisterAutoMapper(IServiceCollection services)
+        {
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
         }
 
         private static void RegisterServices(IServiceCollection services)

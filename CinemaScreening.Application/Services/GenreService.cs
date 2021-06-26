@@ -5,38 +5,63 @@ using System.Threading.Tasks;
 using CinemaScreening.Application.Services.Interfaces;
 using CinemaScreening.Domain.Dtos;
 using CinemaScreening.Domain.RepositoryInterfaces;
+using CinemaScreening.Domain.Models;
+using AutoMapper;
 
 namespace CinemaScreening.Application.Services
 {
     public class GenreService : ServiceBase<IGenreRepository>, IGenreService
     {
-        public GenreService(IGenreRepository genreRepository, IUnitOfWorkFactory unitOfWorkFactory) : base(genreRepository, unitOfWorkFactory)
+        public GenreService(IGenreRepository genreRepository, IUnitOfWorkFactory unitOfWorkFactory, IMapper mapper) : base(genreRepository, unitOfWorkFactory, mapper)
         {
         }
 
-        public Task<GenreDto> Create(GenreDto entity)
+        public async Task<GenreDto> Create(GenreDto entity)
         {
-            throw new NotImplementedException();
+            using (var uow = UnitOfWorkFactory.StartNew(Repository))
+            {
+                var result = await Repository.Create(Mapper.Map<Genre>(entity));
+                uow.Commit();
+                return Mapper.Map<GenreDto>(result);
+            }
         }
 
-        public Task<int> Delete(int id)
+        public async Task<int> Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var uow = UnitOfWorkFactory.StartNew(Repository))
+            {
+                var result = await Repository.Delete(id);
+                uow.Commit();
+                return result;
+            }
         }
 
-        public Task<IEnumerable<GenreDto>> GetAll()
+        public async Task<IEnumerable<GenreDto>> GetAll()
         {
-            throw new NotImplementedException();
+            using (var uow = UnitOfWorkFactory.StartNew(Repository))
+            {
+                var result = await Repository.GetAll();
+                return Mapper.Map<IEnumerable<GenreDto>>(result);
+            }
         }
 
-        public Task<GenreDto> GetById(int id)
+        public async Task<GenreDto> GetById(int id)
         {
-            throw new NotImplementedException();
+            using (var uow = UnitOfWorkFactory.StartNew(Repository))
+            {
+                var result = await Repository.GetById(id);
+                return Mapper.Map<GenreDto>(result);
+            }
         }
 
-        public Task<GenreDto> Update(int id, GenreDto entity)
+        public async Task<GenreDto> Update(int id, GenreDto entity)
         {
-            throw new NotImplementedException();
+            using (var uow = UnitOfWorkFactory.StartNew(Repository))
+            {
+                var result = await Repository.Update(id, Mapper.Map<Genre>(entity));
+                uow.Commit();
+                return Mapper.Map<GenreDto>(result);
+            }
         }
     }
 }

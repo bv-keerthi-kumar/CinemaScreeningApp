@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace CinemaScreening.Domain.RepositoryInterfaces
-{
-    [Serializable]
+{   
     public class RepositoryException : Exception
     {
         public string[] Messages { get; }

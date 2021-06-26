@@ -1,4 +1,4 @@
-﻿using CinemaScreening.Domain.Dtos;
+﻿using CinemaScreening.Domain.Models;
 using CinemaScreening.Domain.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace CinemaScreening.Infra.Data.Repositories
 {
     public class TheaterRepository : RepositoryBase, ITheaterRepository
     {
-        public Task<TheaterDto> Create(TheaterDto entity)
+        public Task<Theater> Create(Theater entity)
         {
             throw new NotImplementedException();
         }
@@ -19,17 +19,17 @@ namespace CinemaScreening.Infra.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<TheaterDto>> GetAll()
+        public Task<IEnumerable<Theater>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<TheaterDto> GetById(int id)
+        public Task<Theater> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<TheaterDto> Update(int id, TheaterDto entity)
+        public Task<Theater> Update(int id, Theater entity)
         {
             throw new NotImplementedException();
         }

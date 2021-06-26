@@ -7,6 +7,6 @@ namespace CinemaScreening.Domain.Dtos
     public class CinemaHallDto
     {
         public int Id { get; set; }
-        public string CinemaHall { get; set; }
+        public string Name { get; set; }
     }
 }

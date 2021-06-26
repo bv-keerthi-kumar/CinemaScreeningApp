@@ -1,4 +1,5 @@
 ﻿using CinemaScreening.Domain.Dtos;
+using CinemaScreening.Domain.Models;
 using CinemaScreening.Domain.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace CinemaScreening.Infra.Data.Repositories
 {
     public class AddressRepository : RepositoryBase, IAddressRepository
     {
-        public Task<AddressDto> Create(AddressDto entity)
+        public Task<Address> Create(Address entity)
         {
             throw new NotImplementedException();
         }
@@ -19,17 +20,17 @@ namespace CinemaScreening.Infra.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<AddressDto>> GetAll()
+        public Task<IEnumerable<Address>> GetAll()
         {
             throw new NotImplementedException();
         }
 
-        public Task<AddressDto> GetById(int id)
+        public Task<Address> GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Task<AddressDto> Update(int id, AddressDto entity)
+        public Task<Address> Update(int id, Address entity)
         {
             throw new NotImplementedException();
         }

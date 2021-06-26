@@ -9,12 +9,14 @@ create proc DeleteDirector
 as
 begin
 	declare @result int =1;
-	declare @message varchar(100);
+	declare @messages table (
+        msg nvarchar(1000));
 
 	if exists(select directorId from dbo.Movie where DirectorId = @id)
 	begin
 		set @result = 0;
-		set @message = 'This Director cannot be deleted because it is referenced by one or more Movies.' ;
+		insert into @messages
+        values ( 'This Director cannot be deleted because it is referenced by one or more Movies.');
 	end;
 
 	if @result = 1
@@ -24,7 +26,7 @@ begin
 	   set @result = @@rowcount;
 	end;
 
-	select @message;
+	select msg from @message;
 	return @result;
 end;
 go

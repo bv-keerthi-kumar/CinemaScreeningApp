@@ -5,7 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CinemaScreening.Domain\CinemaScreening.Domain.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Infra.Data\CinemaScreening.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

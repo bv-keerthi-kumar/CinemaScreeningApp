@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CinemaScreening.Domain.Enums
 {
-    public enum  AcType
+    public enum AcType
     {
         Unknown = 0,
         Ac = 1,
