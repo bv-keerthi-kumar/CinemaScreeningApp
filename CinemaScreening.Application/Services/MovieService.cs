@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,8 +44,8 @@ namespace CinemaScreening.Application.Services
         {
             using (var uow = UnitOfWorkFactory.StartNew(Repository))
             {
-                var result = await Repository.GetAll();
-                return Mapper.Map<IEnumerable<MovieDto>>(result);
+                var movies = await Repository.GetAll();                                        
+                return Mapper.Map<IEnumerable<MovieDto>>(movies);
             }
         }
 
@@ -52,8 +53,9 @@ namespace CinemaScreening.Application.Services
         {
             using (var uow = UnitOfWorkFactory.StartNew(Repository))
             {
-                var result = await Repository.GetById(id);
-                return GetMovieDto(result);
+                var movie = (await Repository.GetMovieById(id).ConfigureAwait(false)).SingleOrDefault();
+                var result = Mapper.Map<MovieDto>(movie);
+                return result;
             }
         }
 
@@ -101,7 +103,7 @@ namespace CinemaScreening.Application.Services
         /// </summary>
         private MovieDto GetMovieDto(Movie movie)
         {
-            return new MovieDto()
+            var movieDto = new MovieDto()
             {
                 Id = movie.Id,
                 Title = movie.Title,
@@ -123,7 +125,19 @@ namespace CinemaScreening.Application.Services
                     Id = movie.Language.Id,
                     Name = movie.Language.Name
                 }
+                /*
+                MoviePromosDto = new List<MoviePromoDto>((IEnumerable<MoviePromoDto>)movie.MoviePromos)                                                                                                                                             
+                MoviePromosDto = movie.MoviePromos.Select(x => new MoviePromoDto
+                                    {
+                                        Id = x.Id,                                        
+                                        MovieDto = x.Movie,
+                                        ImageUrl = x.ImageUrl,
+                                        TeaserUrl = x.TeaserUrl,
+                                        TrailerUrl = x.TrailerUrl
+                                    })
+                */
             };
+            return movieDto;
         }
     }
 }

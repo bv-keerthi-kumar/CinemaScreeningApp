@@ -107,7 +107,7 @@ GO
 CREATE TABLE [dbo].[MoviePromo](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[MovieId] [int] NOT NULL,
-	[LanguageId] [int] NOT NULL,
+	[LanguageName] [nvarchar](50) NULL,
 	[ImageUrl] [nvarchar](200) NULL,
 	[TeaserUrl] [nvarchar](200) NULL,
 	[TrailerUrl] [nvarchar](200) NULL,
@@ -116,13 +116,6 @@ CREATE TABLE [dbo].[MoviePromo](
 	[Id] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
 ) ON [PRIMARY]
-GO
-
-ALTER TABLE [dbo].[MoviePromo]  WITH CHECK ADD  CONSTRAINT [FK_MoviePromo_Language] FOREIGN KEY([LanguageId])
-REFERENCES [dbo].[Language] ([Id])
-GO
-
-ALTER TABLE [dbo].[MoviePromo] CHECK CONSTRAINT [FK_MoviePromo_Language]
 GO
 
 ALTER TABLE [dbo].[MoviePromo]  WITH CHECK ADD  CONSTRAINT [FK_MoviePromo_Movie] FOREIGN KEY([MovieId])

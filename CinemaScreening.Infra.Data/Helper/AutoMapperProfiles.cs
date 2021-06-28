@@ -26,9 +26,12 @@ namespace CinemaScreening.Infra.Data.Helper
             CreateMap<Genre, GenreDto>();
             CreateMap<Language, LanguageDto>();
             CreateMap<Movie, MovieDto>()
-                .ForMember(destMovieDto => destMovieDto.DirectorDto, opt => opt.MapFrom(srcMovie => srcMovie.Director))
-                .ForMember(destMovieDto => destMovieDto.GenreDto, opt => opt.MapFrom(srcMovie => srcMovie.Genre))
-                .ForMember(destMovieDto => destMovieDto.LanguageDto, opt => opt.MapFrom(srcMovie => srcMovie.Language));
+                .ForMember(d => d.DirectorDto, opt => opt.MapFrom(s => s.Director))
+                .ForMember(d => d.GenreDto, opt => opt.MapFrom(s => s.Genre))
+                .ForMember(d => d.LanguageDto, opt => opt.MapFrom(s => s.Language))
+                .ForMember(d => d.MoviePromosDto, opt => opt.MapFrom(s => s.MoviePromos));
+            CreateMap<MoviePromo, MoviePromoDto>()
+                .ForMember(d => d.MovieDto, opt => opt.MapFrom(s => s.Movie));
 
             //Reverse Map
             /*
@@ -44,9 +47,12 @@ namespace CinemaScreening.Infra.Data.Helper
             CreateMap<Genre, GenreDto>().ReverseMap(); 
             CreateMap<Language, LanguageDto>().ReverseMap();
             CreateMap<Movie, MovieDto>()
-                .ForMember(destMovieDto => destMovieDto.DirectorDto, opt => opt.MapFrom(srcMovie => srcMovie.Director))
-                .ForMember(destMovieDto => destMovieDto.GenreDto, opt => opt.MapFrom(srcMovie => srcMovie.Genre))
-                .ForMember(destMovieDto => destMovieDto.LanguageDto, opt => opt.MapFrom(srcMovie => srcMovie.Language)).ReverseMap();
+                .ForMember(d => d.DirectorDto, opt => opt.MapFrom(s => s.Director))
+                .ForMember(d => d.GenreDto, opt => opt.MapFrom(s => s.Genre))
+                .ForMember(d => d.LanguageDto, opt => opt.MapFrom(s => s.Language))
+                .ForMember(d => d.MoviePromosDto, opt => opt.MapFrom(s => s.MoviePromos)).ReverseMap();
+            CreateMap<MoviePromo, MoviePromoDto>()
+                .ForMember(d => d.MovieDto, opt => opt.MapFrom(s => s.Movie)).ReverseMap();
         }
     }
 }

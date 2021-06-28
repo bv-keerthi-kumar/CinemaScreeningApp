@@ -40,7 +40,7 @@ namespace CinemaScreening.WebApi.Controllers
             {
                 return NotFound();
             }
-            return new JsonResult(result);
+            return result;
         }
 
         // POST api/<MovieController>

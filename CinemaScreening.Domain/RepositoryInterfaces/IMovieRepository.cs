@@ -8,5 +8,6 @@ namespace CinemaScreening.Domain.RepositoryInterfaces
 {
     public interface IMovieRepository : IGenericRepository<Movie>, IRepository
     {
+        Task<List<Movie>> GetMovieById(int id);
     }
 }

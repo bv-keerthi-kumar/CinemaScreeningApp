@@ -6,6 +6,10 @@ namespace CinemaScreening.Domain.Models
 {
     public class Movie : EntityBase
     {
+        public Movie()
+        {
+            MoviePromos = new List<MoviePromo>();
+        }
         public int Id { get; set; }
         public string Title { get; set; }
         public int? Rating { get; set; }
@@ -13,6 +17,7 @@ namespace CinemaScreening.Domain.Models
         public Director Director { get; set; }
         public Genre Genre { get; set; }
         public Language Language { get; set; }
+        public List<MoviePromo> MoviePromos { get; set; }
 
         /// <summary>
         /// Updates the <see cref="Movie"/> dto with valid changes.
@@ -26,6 +31,7 @@ namespace CinemaScreening.Domain.Models
             Director = changes.Director ?? Director;
             Genre = changes.Genre ?? Genre;
             Language = changes.Language ?? Language;
+            MoviePromos = changes.MoviePromos ?? MoviePromos;
         }
     }
 }

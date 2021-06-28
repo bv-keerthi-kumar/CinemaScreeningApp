@@ -27,8 +27,14 @@ namespace CinemaScreening.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            /*
+             A possible object cycle was detected which is not supported. This can either be due to a cycle or if the object depth 
+             is larger than the maximum allowed depth of 32.
+             To resolve this, added package Microsoft.AspNetCore.Mvc.NewtonsoftJson.
+             */
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
-            services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CinemaScreening.WebApi", Version = "v1" });
