@@ -1,5 +1,5 @@
 ﻿using CinemaScreening.Application.Services.Interfaces;
-using CinemaScreening.Domain.Dtos;
+using CinemaScreening.Infra.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // GET: api/<GenreController>
         [HttpGet]
-        public async Task<ActionResult<IList<GenreDto>>> Get()
+        public async Task<ActionResult<IList<Genre>>> Get()
         {
             var result = await _genreService.GetAll().ConfigureAwait(false);
             return result.ToList();
@@ -31,7 +31,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // GET api/<GenreController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<GenreDto>> Get(int id)
+        public async Task<ActionResult<Genre>> Get(int id)
         {
             var result = await _genreService.GetById(id).ConfigureAwait(false);
 
@@ -44,7 +44,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // POST api/<GenreController>
         [HttpPost]
-        public async Task<ActionResult<GenreDto>> Post([FromBody] GenreDto genre)
+        public async Task<ActionResult<Genre>> Post([FromBody] Genre genre)
         {
             var result = await _genreService.Create(genre).ConfigureAwait(false);
             return CreatedAtAction("Get", new { id = result.Id }, result);
@@ -52,7 +52,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // PUT api/<GenreController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] GenreDto genre)
+        public async Task<IActionResult> Put(int id, [FromBody] Genre genre)
         {
             try
             {

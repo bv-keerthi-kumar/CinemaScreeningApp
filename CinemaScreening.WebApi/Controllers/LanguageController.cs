@@ -1,5 +1,5 @@
 ﻿using CinemaScreening.Application.Services.Interfaces;
-using CinemaScreening.Domain.Dtos;
+using CinemaScreening.Infra.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -22,7 +22,7 @@ namespace CinemaScreening.WebApi.Controllers
         }
         // GET: api/<LanguageController>
         [HttpGet]
-        public async Task<ActionResult<IList<LanguageDto>>> Get()
+        public async Task<ActionResult<IList<Language>>> Get()
         {
             var result = await _languageService.GetAll().ConfigureAwait(false);
             return result.ToList();
@@ -30,7 +30,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // GET api/<LanguageController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<LanguageDto>> Get(int id)
+        public async Task<ActionResult<Language>> Get(int id)
         {
             var result = await _languageService.GetById(id).ConfigureAwait(false);
 
@@ -43,7 +43,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // POST api/<LanguageController>
         [HttpPost]
-        public async Task<ActionResult<LanguageDto>> Post([FromBody] LanguageDto language)
+        public async Task<ActionResult<Language>> Post([FromBody] Language language)
         {
             var result = await _languageService.Create(language).ConfigureAwait(false);
             return CreatedAtAction("Get", new { id = result.Id }, result);
@@ -51,7 +51,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // PUT api/<LanguageController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] LanguageDto language)
+        public async Task<IActionResult> Put(int id, [FromBody] Language language)
         {
             try
             {

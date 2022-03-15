@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.123" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaScreening.Application.Utils\CinemaScreening.Application.Utils.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Infra.Dtos\CinemaScreening.Infra.Dtos.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Infra.RepositoryInterface\CinemaScreening.Infra.RepositoryInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

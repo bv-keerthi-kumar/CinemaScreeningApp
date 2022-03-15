@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CinemaScreening.Infra.Dtos\CinemaScreening.Infra.Dtos.csproj" />
+    <ProjectReference Include="..\CinemaScreening.Infra.RepositoryInterface\CinemaScreening.Infra.RepositoryInterfaces.csproj" />
+  </ItemGroup>
+
+</Project>

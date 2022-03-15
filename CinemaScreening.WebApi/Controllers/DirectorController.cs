@@ -1,5 +1,5 @@
 ﻿using CinemaScreening.Application.Services.Interfaces;
-using CinemaScreening.Domain.Dtos;
+using CinemaScreening.Infra.Dtos;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // GET: api/<DirectorController>
         [HttpGet]
-        public async Task<ActionResult<IList<DirectorDto>>> Get()
+        public async Task<ActionResult<IList<Director>>> Get()
         {
             var result = await _directorService.GetAll().ConfigureAwait(false);
             return result.ToList();
@@ -31,7 +31,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // GET api/<DirectorController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<DirectorDto>> Get(int id)
+        public async Task<ActionResult<Director>> Get(int id)
         {
             var result = await _directorService.GetById(id).ConfigureAwait(false);
 
@@ -44,7 +44,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // POST api/<DirectorController>
         [HttpPost]
-        public async Task<ActionResult<DirectorDto>> Post([FromBody] DirectorDto director)
+        public async Task<ActionResult<Director>> Post([FromBody] Director director)
         {            
             var resultEntity = await _directorService.Create(director).ConfigureAwait(false);
             return CreatedAtAction("Get", new { id = resultEntity.Id }, resultEntity);
@@ -52,7 +52,7 @@ namespace CinemaScreening.WebApi.Controllers
 
         // PUT api/<DirectorController>/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] DirectorDto director)
+        public async Task<IActionResult> Put(int id, [FromBody] Director director)
         {
             try
             {               
