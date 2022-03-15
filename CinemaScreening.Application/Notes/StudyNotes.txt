@@ -1,1 +1,0 @@
-﻿1. https://stackoverflow.com/questions/64348120/how-to-query-an-object-with-one-to-many-relationship-using-dapper

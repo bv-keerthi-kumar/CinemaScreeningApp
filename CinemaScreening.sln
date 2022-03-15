@@ -13,17 +13,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.Ioc", "Infra.Ioc", "{7BCD3749-C6D6-4147-9BC0-11587731679B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaScreening.Application", "CinemaScreening.Application\CinemaScreening.Application.csproj", "{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApi", "WebApi", "{531988B8-7B9F-4A2A-A170-4BC8FC480A9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaScreening.Domain", "CinemaScreening.Domain\CinemaScreening.Domain.csproj", "{3429B99F-D307-476C-A9E8-DF64B833D46F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaScreening.Infra.Data", "CinemaScreening.Infra.Data\CinemaScreening.Infra.Data.csproj", "{8D24B44A-7B6E-4740-842D-6F3FBA440404}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaScreening.Infra.Ioc", "CinemaScreening.Infra.Ioc\CinemaScreening.Infra.Ioc.csproj", "{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaScreening.WebApi", "CinemaScreening.WebApi\CinemaScreening.WebApi.csproj", "{27B9D45F-51FB-4E84-B8FF-CDD535195DFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CinemaScreening.WebApi", "CinemaScreening.WebApi\CinemaScreening.WebApi.csproj", "{27B9D45F-51FB-4E84-B8FF-CDD535195DFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,22 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3429B99F-D307-476C-A9E8-DF64B833D46F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3429B99F-D307-476C-A9E8-DF64B833D46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3429B99F-D307-476C-A9E8-DF64B833D46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3429B99F-D307-476C-A9E8-DF64B833D46F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8D24B44A-7B6E-4740-842D-6F3FBA440404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8D24B44A-7B6E-4740-842D-6F3FBA440404}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8D24B44A-7B6E-4740-842D-6F3FBA440404}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8D24B44A-7B6E-4740-842D-6F3FBA440404}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{27B9D45F-51FB-4E84-B8FF-CDD535195DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{27B9D45F-51FB-4E84-B8FF-CDD535195DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{27B9D45F-51FB-4E84-B8FF-CDD535195DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -56,10 +32,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A5CF5BCB-B6A9-4C86-A16E-FB8F24DF6881} = {489D55D0-FD1C-4D92-A855-386EB3181CF0}
-		{3429B99F-D307-476C-A9E8-DF64B833D46F} = {05A9E76B-E7BC-4D0D-A85A-F53CA31AF10A}
-		{8D24B44A-7B6E-4740-842D-6F3FBA440404} = {F127BA3C-89A5-46EB-806A-57238FA1DD2F}
-		{CF7DD18C-2CD3-4892-9DEB-F24444C22DF7} = {7BCD3749-C6D6-4147-9BC0-11587731679B}
 		{27B9D45F-51FB-4E84-B8FF-CDD535195DFC} = {531988B8-7B9F-4A2A-A170-4BC8FC480A9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
