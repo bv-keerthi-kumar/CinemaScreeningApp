@@ -12,6 +12,6 @@ namespace CinemaScreening.Domain.Models
         public string TrailerUrl { get; set; }
         public string LanguageName { get; set; }
         public Movie Movie { get; set; }
-
+        
     }
 }
